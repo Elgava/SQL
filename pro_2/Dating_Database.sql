@@ -12,14 +12,16 @@ constraint cont_id primary key(id)
 create table profession(
 prof_id serial not null,
 profession varchar(20),
-constraint proff_id primary key(prof_id)
+constraint proff_id primary key (prof_id),
+constraint unique_profession unique (profession)
 );
 
 create table zip_code(
 zip_code_id serial not null,
 city varchar(25),
 province varchar(20),
-constraint zip_id primary key(zip_code_id)
+constraint zip_id primary key(zip_code_id),
+constraint check_zip_code CHECK (zip_code <4)
 );
 
 create table status(
@@ -95,7 +97,7 @@ values ('Centurion', 'gauteng'),
 insert into status(status)
 values('single'),
 	  ('single'),
-	  ('sinle'),
+	  ('single'),
 	  ('divorced');
 	  
 insert into interests(interest)
